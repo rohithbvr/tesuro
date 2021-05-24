@@ -104,6 +104,26 @@
     </style>
 </head>
 
+<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/12869/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
+
 <body>
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -144,23 +164,23 @@
                                 <form>
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
+                                        <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
 
                                     </div>
 
                                     <div class="form-group">
                                         <label for="age">Age</label>
-                                        <input type="number" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Enter your age">
+                                        <input type="number" class="form-control" name="age" id="age" aria-describedby="emailHelp" placeholder="Enter your age">
 
                                     </div>
 
                                     <div class="form-group blue-border">
                                         <label for="Confession">Confession</label>
-                                        <textarea class="form-control" id="Confession" rows="3" style="resize:vertical;max-height: 140px;"></textarea>
+                                        <textarea class="form-control" id="Confession" name="confess" rows="3" style="resize:vertical;max-height: 140px;"></textarea>
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="button" class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                                        <button onclick='SubForm()'>Submit</button>
                                     </div>
                                 </form>
                         </div>
